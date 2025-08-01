@@ -47,6 +47,21 @@ export function AuthProvider({ children }) {
 
   //logout
   const logout = () => {
-      return signOut(auth);
-  }
+    return signOut(auth);
+  };
+
+  const value = {
+    currentUser,
+    login,
+    registration,
+    loginWithGoogle,
+    resetPassword,
+    logout,
+  };
+
+  return (
+    <AuthContext.Provider value={value}>
+        {!loading && children}
+    </AuthContext.Provider>
+  )
 }
